@@ -1,0 +1,28 @@
+{
+  "features": [
+    "Amina Flow",
+    "Ore Pulp pH",
+    "Flotation Column 01 Air Flow",
+    "Flotation Column 02 Air Flow",
+    "Flotation Column 03 Air Flow",
+    "Flotation Column 04 Level",
+    "Flotation Column 05 Level",
+    "Flotation Column 06 Level",
+    "Flotation Column 07 Level",
+    "Silica_Rejection_Rate",
+    "Selectivity_Index",
+    "Avg_Air_Flow",
+    "Air_Flow_Std",
+    "Level_Std",
+    "hour",
+    "day_of_week",
+    "day_of_month",
+    "week_of_year"
+  ],
+  "target": "Quality_Failure",
+  "deployment_threshold": 0.39000000000000007,
+  "model_name": "XGBoost",
+  "f1_score": 0.9988655865499287,
+  "roc_auc": 0.9999949127572817,
+  "trained_at": "2026-02-20T15:03:13.848243"
+}
