@@ -77,9 +77,9 @@ Deployment: Streamlit Cloud, Plotly, Joblib
 👩🏾‍💻 Author
 Lindiwe Songelwa — Data Scientist | Developer | Insight Creator
 
-🌐 Portfolio
-💼 LinkedIn
-🏅 Credly
+🌐 Portfolio https://lindiwe-22.github.io/Portfolio-Website/
+💼 LinkedIn https://www.linkedin.com/in/lindiwe-songelwa
+🏅 [Credly] https://www.credly.com/users/samnkelisiwe-lindiwe-songelwa
 [![Streamlit App](https://miningqualitydashboard-lindiwesongewa.streamlit.app/)]
 📧 sl.songelwa@hotmail.co.za
 
