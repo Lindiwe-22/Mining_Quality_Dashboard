@@ -1,95 +1,163 @@
-⛏️ Mining Quality Intelligence — Predictive Quality Control System
-A full-stack machine learning system that predicts silica concentrate quality failures in an iron ore flotation plant — hours before they happen.
+# ⛏️ Mining Quality Intelligence — Predictive Quality Control System
 
-🎯 Problem Statement
-In iron ore flotation processing, silica is an unwanted impurity. 
-When silica concentration exceeds 4% in the final concentrate:
-* Product quality fails industry standards
-* Customers impose penalty fees or reject shipments
-* Revenue is lost and reprocessing costs increase
+> A full-stack machine learning system that predicts silica concentrate quality failures in an iron ore flotation plant — hours before they happen.
+
+---
+
+## 🔗 Demo Link
+
+👉 [View Live Streamlit Dashboard](https://miningqualitydashboard-lindiwesongewa.streamlit.app/)
+
+---
+
+## 📋 Table of Contents
+
+- [Business Understanding](#business-understanding)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Approach](#approach)
+- [Status](#status)
+- [Credits](#credits)
+
+---
+
+## 💼 Business Understanding
+
+In iron ore flotation processing, silica is an unwanted impurity. When silica concentration exceeds 4% in the final concentrate, product quality fails industry standards, customers impose penalty fees or reject shipments, and revenue is lost while reprocessing costs increase.
 
 By the time quality degradation is detected through lab analysis, it is already too late to intervene. This project solves that problem.
 
-💡 Solution
-A binary classification model trained on 737,453 hourly sensor readings that predicts quality failures before they occur, giving operators time to adjust process parameters and prevent off-spec production.
+**A binary classification model trained on 737,453 hourly sensor readings predicts quality failures before they occur** — giving operators time to adjust process parameters and prevent off-spec production.
 
-Operators receive:
+Operators receive a three-tier alert system:
 
-🟢 GREEN — Normal operation, no action needed
+| Alert | Meaning |
+|---|---|
+| 🟢 **GREEN** | Normal operation — no action needed |
+| 🟡 **AMBER** | Early warning — monitor closely |
+| 🔴 **RED** | Intervention required + specific recommended actions |
 
-🟡 AMBER — Early warning, monitor closely
+---
 
-🔴 RED — Intervention required + specific recommended actions
+## 📸 Screenshots
 
+> *Dashboard screenshots will be added here.*
 
+| Live Scoring | Historical Trends | Drift Monitor |
+|---|---|---|
+| ![Live Scoring](#) | ![Historical Trends](#) | ![Drift Monitor](#) |
 
-📓 Notebook Phases
+---
 
-Phase 1 — Data Loading
+## 🛠️ Technologies
 
-* Dataset: Quality Prediction in a Mining Process (Kaggle)
-* 737,453 rows × 24 sensor columns
-* Zero missing values confirmed
+**Languages & Environment**
 
-Phase 2 — Exploratory Data Analysis
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 
-* Feature engineering: 12 new derived features
-* Univariate, correlation, and time series analysis
-* Quality thresholds defined (Premium <2%, Good <3%, Acceptable <4%, Poor ≥4%)
-* Weekly operational cycles and shift-change patterns revealed
+**Data & EDA**
 
-Phase 3 — Machine Learning
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=python&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge&logo=python&logoColor=white)
 
-* Preprocessing: StandardScaler + SMOTE (80/20 stratified split)
-* Model 1: XGBoost (300 estimators, max_depth=6, lr=0.05)
-* Model 2: Neural Network (128→64→32→1, BatchNorm, Dropout)
-* Primary Metric: F1-Score
-* Threshold Tuning: Business-optimal (maximises net financial benefit)
+**Machine Learning**
 
-Phase 4 — Deployment & Monitoring
+![XGBoost](https://img.shields.io/badge/XGBoost-FF6600?style=for-the-badge&logo=python&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Imbalanced-learn](https://img.shields.io/badge/Imbalanced--learn%20%7C%20SMOTE-4B8BBE?style=for-the-badge&logo=python&logoColor=white)
 
-* Real-time MiningQualityScorer pipeline class
-* Streamlit dashboard with 4 interactive pages
-* PSI drift monitoring with automated retraining triggers
+**Deployment**
 
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
+![Joblib](https://img.shields.io/badge/Joblib-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-📊 Dashboard Pages
+| Category | Tools |
+|---|---|
+| **Data & EDA** | Python, Pandas, NumPy, Matplotlib, Seaborn |
+| **Machine Learning** | XGBoost, TensorFlow/Keras, Scikit-learn |
+| **Class Imbalance** | Imbalanced-learn (SMOTE) |
+| **Deployment** | Streamlit Cloud, Plotly, Joblib |
 
+---
 
-🏠 Live Scoring: Enter sensor readings → instant alert + actions
+## ⚙️ Setup
 
-📈 Historical Trends: 168-hour probability trend + alert distribution
+```bash
+# Clone the repository
+git clone https://github.com/your-username/mining-quality-intelligence.git
+cd mining-quality-intelligence
 
-🔍 Feature Inspector: Feature vs failure probability analysis
+# Install dependencies
+pip install -r requirements.txt
 
-📊 Drift Monitor: PSI heatmap — flags when model needs retraining
+# Run the Streamlit dashboard locally
+streamlit run app.py
+```
 
+> **Dataset:** [Quality Prediction in a Mining Process](https://www.kaggle.com/datasets/edumagalhaes/quality-prediction-in-a-mining-process) — available on Kaggle.
 
-🛠️ Tech Stack
+---
 
+## 🔍 Approach
 
-* Data & EDA: Python, Pandas, NumPy, Matplotlib, Seaborn
+### Phase 1 — Data Loading
+The dataset comprises 737,453 rows × 24 sensor columns sourced from a real iron ore flotation plant, with zero missing values confirmed across all features.
 
-* Machine Learning: XGBoost, TensorFlow/Keras, Scikit-learn
+### Phase 2 — Exploratory Data Analysis
+Twelve new derived features were engineered, followed by univariate, correlation, and time series analysis. Quality thresholds were defined as: **Premium < 2%**, **Good < 3%**, **Acceptable < 4%**, **Poor ≥ 4%**. Analysis revealed weekly operational cycles and shift-change patterns in the data.
 
-* Class Imbalance: Imbalanced-learn (SMOTE)
+### Phase 3 — Machine Learning
+Data was preprocessed using StandardScaler with SMOTE to address class imbalance, on an 80/20 stratified split. Two models were trained and compared:
 
-* Deployment: Streamlit Cloud, Plotly, Joblib
+- **Model 1 — XGBoost:** 300 estimators, max_depth=6, learning rate=0.05
+- **Model 2 — Neural Network:** Architecture 128→64→32→1 with BatchNorm and Dropout layers
 
+The primary evaluation metric was **F1-Score**, with threshold tuning applied to maximise net financial benefit for the business.
 
+### Phase 4 — Deployment & Monitoring
+A real-time `MiningQualityScorer` pipeline class was built and deployed via a Streamlit dashboard with four interactive pages:
 
-👩🏾‍💻 Author
-Lindiwe Songelwa — Data Scientist | Developer | Insight Creator
+| Page | Description |
+|---|---|
+| 🏠 **Live Scoring** | Enter sensor readings → instant alert + recommended actions |
+| 📈 **Historical Trends** | 168-hour probability trend + alert distribution |
+| 🔍 **Feature Inspector** | Feature vs failure probability analysis |
+| 📊 **Drift Monitor** | PSI heatmap — flags when model needs retraining |
 
-🌐 [Portfolio](https://lindiwe-22.github.io/Portfolio-Website/)
+PSI drift monitoring with automated retraining triggers ensures the model remains accurate as plant conditions evolve over time.
 
-💼 [LinkedIn](https://www.linkedin.com/in/lindiwe-songelwa)
+---
 
-🏅 [Credly](https://www.credly.com/users/samnkelisiwe-lindiwe-songelwa)
+## 📌 Status
 
-🚀 [Streamlit App](https://miningqualitydashboard-lindiwesongewa.streamlit.app/)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
-📧 sl.songelwa@hotmail.co.za
+The full pipeline is complete and deployed. Future iterations may include:
+- Multi-plant generalisation across different flotation configurations
+- Integration with SCADA/DCS systems for direct operator alerts
+- Expanded drift monitoring with automated model versioning
 
+---
 
-© 2026 Lindiwe Songelwa. All rights reserved.
+## 🙏 Credits
+
+**Developed by Lindiwe Songelwa — Data Scientist | Developer | Insight Creator**
+
+| Platform | Link |
+|---|---|
+| 💼 LinkedIn | [Lindiwe S.](https://www.linkedin.com/in/lindiwe-songelwa) |
+| 🌐 Portfolio | [Creative Portfolio](https://lindiwe-22.github.io/Portfolio-Website/) |
+| 🏅 Credly | [Lindiwe Songelwa – Badges](https://www.credly.com/users/samnkelisiwe-lindiwe-songelwa) |
+| 🚀 Live App | [Streamlit Dashboard](https://miningqualitydashboard-lindiwesongewa.streamlit.app/) |
+| 📧 Email | [sl.songelwa@hotmail.co.za](mailto:sl.songelwa@hotmail.co.za) |
+
+---
+
+*© 2026 Lindiwe Songelwa. All rights reserved.*
