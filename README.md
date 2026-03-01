@@ -42,8 +42,6 @@ Operators receive a three-tier alert system:
 
 ## 📸 Screenshots
 
-| Live Scoring | Drift Monitor |
-|---|---|---|
 <img width="1366" height="728" alt="Mining Quality" src="https://github.com/user-attachments/assets/65d8ec27-8820-4472-b933-7bed3009fd72" />
 <img width="1366" height="728" alt="Mining Quality Prediction" src="https://github.com/user-attachments/assets/ae7ee70a-169a-4f60-9ead-5642837e44ed" />
 
